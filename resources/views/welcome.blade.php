@@ -7,11 +7,20 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <title>Tweets, Application!</title>
+    
   </head>
   <body>
     <h1>@lang('home.title_menu')!</h1>
+    <a href="{{url('posts')}}" class="btn btn-primary pull-right">Nuevo</a>
+
+    <form action="{{URL('posts')}}" method="POST">
+    {{csrf_field()}}
+
+    <div class="form-group">
+      <label for="name" class="control-label">Codigo</label>
+      <input type="text" name="code" class="form-control">
+    </div>
+    </form>
 
     <div class="container">
 
@@ -52,6 +61,53 @@
   </div>
 </nav>
 
+    </div>
+
+
+    <div class="panel-body">
+
+        <!-- New Task Form -->
+        <form action="/task" method="POST" class="form-horizontal">
+            {{ csrf_field() }}
+
+            <!-- Task Name -->
+            <div class="form-group">
+                <label for="task" class="col-sm-3 control-label">Mis Tweets</label>
+
+                <div class="col-sm-6">
+                    <input type="text" name="name" id="task-name" class="form-control">
+                </div>
+            </div>
+
+            <!-- Add Task Button -->
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-6">
+                    <button type="submit" class="btn btn-default">
+                        <i class="fa fa-plus"></i> Add Tweets
+                    </button>
+                </div>
+            </div>
+        </form>
+           <table class="table">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Code</th>
+              </tr>
+            </thead>
+
+          <tbody>
+
+          @foreach($posts as $post)
+          <tr>
+            <td>{{$post->id}}<td>
+            <td>{{$post->code}}<td>
+          </tr>
+          @endforeach
+
+          
+         </tbody>
+          </table>
     </div>
 
     <!-- Optional JavaScript -->
