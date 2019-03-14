@@ -18,6 +18,7 @@ class CreatePostTranslationsTable extends Migration
             $table->timestamps();
             $table->integer('post_id')->unsigned();
             $table->string('name');
+            $table->text('observaciones');
             $table->string('locale')->index();
 
             $table->unique(['post_id','locale']);

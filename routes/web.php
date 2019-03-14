@@ -15,24 +15,29 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('posts','PostController');
-/* 
+//Route::resource('posts','PostController');
+
 Route::get('/posts', function() {        
     
-    $post = new  \App\Post([
+    // dd(App::getLocale());
+
+     $post = new  \App\Post([
         //'id'=>'5',
-       'code'=>'mi tweet json'
+       'code'=>'mi third sandjas json',
+       'name'=>'asdsadas',
+       'observaciones'=>'sdfd'
+       
     ]);
     $post->save();
-    dd($post->toArray());
+    dd($post->toArray()); 
 
-    /*$post = \App\Post::orderBy('id','desc')->first();
-    $translation = $post->translateOrNew('es');
-    $translation->name = 'hello';
-    $post->save();
-    dd($post->toArray());*/
+  //  $post = \App\Post::orderBy('id','desc')->first();
+  //  $translation = $post->translateOrNew('es');
+  //  $translation->name = 'hello';
+  //  $post->save();
+  //  dd($post->toArray());
    // return view('welcome')->with(compact);
-//}); */
+});  
 
 
 Route::get('locale/{locale} ',function($locale){

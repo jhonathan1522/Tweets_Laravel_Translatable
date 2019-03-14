@@ -50,7 +50,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="locale/es">@lang('home.spanish_menu') </a>
-          <a class="dropdown-item" href="locale/ingles">@lang('home.english_menu')</a>        
+          <a class="dropdown-item" href="locale/en">@lang('home.english_menu')</a>        
         </div>
       </li>
     </ul>
@@ -63,7 +63,15 @@
 
     </div>
 
+    <div class="content">
+      <div class="id m-b-md">
+      {{$post->id}}
+      </div>
+    </div>
 
+    <div>
+      <h4>codigo:{{$post->code}}</h4>
+    </div>
 
 
     <div class="panel-body">
@@ -99,14 +107,14 @@
             </thead>
 
           <tbody>
-
+<!--
           @foreach($posts as $post)
           <tr>
             <td>{{$post->id}}<td>
             <td>{{$post->code}}<td>
           </tr>
           @endforeach
-    
+          -->
 
           
          </tbody>

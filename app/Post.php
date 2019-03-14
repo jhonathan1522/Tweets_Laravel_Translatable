@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use Translatable;
-    public $translatedAttributes = ['name'];
+    public $translatedAttributes = ['name','observaciones'];
     protected $fillable = ['code'];
+
         
 }
