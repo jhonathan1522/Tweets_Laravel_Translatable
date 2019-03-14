@@ -16,42 +16,35 @@ Route::get('/', function () {
 });
 
 Route::resource('posts','PostController');
+/* 
+Route::get('/posts', function() {        
+    
+    $post = new  \App\Post([
+        //'id'=>'5',
+       'code'=>'mi tweet json'
+    ]);
+    $post->save();
+    dd($post->toArray());
 
-Route::get('create', function($locale) {
-    $post = new Article();
-    $article->online = true;
-    $article->save();
+    /*$post = \App\Post::orderBy('id','desc')->first();
+    $translation = $post->translateOrNew('es');
+    $translation->name = 'hello';
+    $post->save();
+    dd($post->toArray());*/
+   // return view('welcome')->with(compact);
+//}); */
 
-    foreach (['en', 'nl', 'fr', 'de'] as $locale) {
-        $article->translateOrNew($locale)->name = "Title {$locale}";
-        $article->translateOrNew($locale)->text = "Text {$locale}";
-    }
-
-    $article->save();
-
-    echo 'Created an article with some translations!';
-});
 
 Route::get('locale/{locale} ',function($locale){
     Session::put('locale',$locale);
+
+    // de translatable
+    //\App::setLocale('en');
+    //fin translatable
+    
     return redirect()->back();
 });
 
-
-Route::get('create', function($locale) {
-    $article = new Article();
-    $article->online = true;
-    $article->save();
-
-    foreach (['en', 'nl', 'fr', 'de'] as $locale) {
-        $article->translateOrNew($locale)->name = "Title {$locale}";
-        $article->translateOrNew($locale)->text = "Text {$locale}";
-    }
-
-    $article->save();
-
-    echo 'Created an article with some translations!';
-});
 
 
 

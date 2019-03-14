@@ -64,6 +64,8 @@
     </div>
 
 
+
+
     <div class="panel-body">
 
         <!-- New Task Form -->
@@ -104,6 +106,7 @@
             <td>{{$post->code}}<td>
           </tr>
           @endforeach
+    
 
           
          </tbody>
